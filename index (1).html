@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="menuPrincipal">
+        <h1>Bienvenido al Temario de Décimo Año</h1>
+        <button id="productosNotablesBtn">Productos Notables</button>
+        <button id="divisionPolinomiosBtn">División de Polinomios</button>
+    </div>
+
+    <!-- Sección de Productos Notables -->
+    <div class="container" id="productosNotables" style="display: none;">
+        <h1>Generador de Productos Notables</h1>
+        <label for="numTerminos">Introduce el número de términos:</label>
+        <input type="number" id="numTerminos" min="1" placeholder="Ejemplo: 3">
+        <button id="generarBtn">Generar Expresión</button>
+        <div id="resultado" class="result" style="display: none;"></div>
+        <button id="volverMenuPrincipal1">Volver al Menú Principal</button>
+    </div>
+
+    <!-- Sección de División de Polinomios (placeholder) -->
+  
+        <div class="container" id="divisionPolinomios" style="display: none;">
+    <h1>División de Polinomios</h1>
+    <label for="numEjemplos">Introduce el número de ejemplos:</label>
+    <input type="number" id="numEjemplos" min="1" placeholder="Ejemplo: 3">
+    <button id="generarDivisionesBtn">Generar Ejemplos</button>
+    <div id="resultadoDivisiones" class="result" style="display: none;"></div>
+    <button id="volverMenuPrincipal2">Volver al Menú Principal</button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
