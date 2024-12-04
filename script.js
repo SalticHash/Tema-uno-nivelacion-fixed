@@ -19,9 +19,9 @@ function generarTerminoAleatorio() {
 // Función para generar una fórmula notable simple
 function generarFormulaNotableSimple() {
     const formulas = [
-        { formula: (a, b) => `(${a} + ${b})²`, peso: 3 },
-        { formula: (a, b) => `(${a} - ${b})²`, peso: 3 },
-        { formula: (a, b) => `(${a} + ${b})(${a} - ${b})`, peso: 2 },
+        { formula: (a, b) => `(${a} + ${b})²`, peso: 5 },
+        { formula: (a, b) => `(${a} - ${b})²`, peso: 5 },
+        { formula: (a, b) => `(${a} + ${b})(${a} - ${b})`, peso: 5 },
         { formula: (a, b) => `(${a} + ${b})³`, peso: 2 },
         { formula: (a, b) => `(${a} - ${b})³`, peso: 2 },
         { formula: (a, b) => `(${a}³ + ${b}³)`, peso: 1 },
