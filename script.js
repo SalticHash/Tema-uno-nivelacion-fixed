@@ -107,7 +107,7 @@ document.getElementById('generarBtn').addEventListener('click', () => {
 // Función para generar un término aleatorio de polinomio
 function generarTerminoPolinomio(gradoMax) {
     const coeficiente = generarNumeroAleatorio(); // Reutiliza la función existente
-    const grado = Math.floor(Math.random() * gradoMax) + 1; // Grado aleatorio entre 1 y gradoMax
+    const grado = Math.floor(Math.random() * 4) + 1; // Grado aleatorio entre 1 y gradoMax
     return `${coeficiente}x^${grado}`;
 }
 
