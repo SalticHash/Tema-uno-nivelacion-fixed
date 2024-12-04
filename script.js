@@ -1,18 +1,22 @@
+// Función para generar un literal aleatorio
 function generarLiteralAleatorio() {
     const literales = ['x', 'y'];
     return literales[Math.floor(Math.random() * literales.length)];
 }
 
+// Función para generar un número aleatorio entre 1 y 10
 function generarNumeroAleatorio() {
     return Math.floor(Math.random() * 10) + 1; // Números del 1 al 10
 }
 
+// Función para generar un término aleatorio (coeficiente y literal)
 function generarTerminoAleatorio() {
     const coeficiente = generarNumeroAleatorio();
     const literal = generarLiteralAleatorio();
     return `${coeficiente}${literal}`;
 }
 
+// Función para generar una fórmula notable simple
 function generarFormulaNotableSimple() {
     const formulas = [
         { formula: (a, b) => `(${a} + ${b})²`, peso: 3 },
@@ -33,11 +37,13 @@ function generarFormulaNotableSimple() {
     return formulaSeleccionada(a, b);
 }
 
+// Función para generar una operación aleatoria (+, -, *)
 function generarOperacionAleatoria() {
     const operaciones = ['+', '-', '*'];
     return operaciones[Math.floor(Math.random() * operaciones.length)];
 }
 
+// Función para generar una expresión compleja combinando varias fórmulas notables
 function generarExpresionCompleja(numTérminos) {
     let expresion = '';
     for (let i = 0; i < numTérminos; i++) {
@@ -50,77 +56,39 @@ function generarExpresionCompleja(numTérminos) {
     return expresion;
 }
 
-document.getElementById('generarBtn').addEventListener('click', () => {
-    const numTerminos = parseInt(document.getElementById('numTerminos').value, 10);
-    const resultadoDiv = document.getElementById('resultado');
-
-    if (!isNaN(numTerminos) && numTerminos > 0) {
-        const expresion = generarExpresionCompleja(numTerminos);
-        resultadoDiv.textContent = `Expresión generada: ${expresion}`;
-        resultadoDiv.style.display = 'block';
-    } else {
-        resultadoDiv.textContent = "Por favor, introduce un número válido.";
-        resultadoDiv.style.display = 'block';
-    }
-});
-
-// Mostrar y ocultar secciones
-function mostrarSeccion(seccionId) {
-    document.getElementById('menuPrincipal').style.display = 'none';
-    document.getElementById('productosNotables').style.display = 'none';
-    document.getElementById('divisionPolinomios').style.display = 'none';
-    document.getElementById(seccionId).style.display = 'block';
-}
-
-// Event listeners para los botones
-document.getElementById('productosNotablesBtn').addEventListener('click', () => {
-    mostrarSeccion('productosNotables');
-});
-
-document.getElementById('divisionPolinomiosBtn').addEventListener('click', () => {
-    mostrarSeccion('divisionPolinomios');
-});
-
-document.getElementById('volverMenuPrincipal1').addEventListener('click', () => {
-    mostrarSeccion('menuPrincipal');
-});
-
-document.getElementById('volverMenuPrincipal2').addEventListener('click', () => {
-    mostrarSeccion('menuPrincipal');
-});
-
-// Código existente para generar productos notables
-document.getElementById('generarBtn').addEventListener('click', () => {
-    const numTerminos = parseInt(document.getElementById('numTerminos').value, 10);
-    const resultadoDiv = document.getElementById('resultado');
-
-    if (!isNaN(numTerminos) && numTerminos > 0) {
-        const expresion = generarExpresionCompleja(numTerminos);
-        resultadoDiv.textContent = `Expresión generada: ${expresion}`;
-        resultadoDiv.style.display = 'block';
-    } else {
-        resultadoDiv.textContent = "Por favor, introduce un número válido.";
-        resultadoDiv.style.display = 'block';
-    }
-});
-
-// Función para generar un término aleatorio de polinomio
+// Función para generar un término aleatorio de polinomio con exponentes formateados
 function generarTerminoPolinomio(gradoMax) {
     const coeficiente = generarNumeroAleatorio(); // Reutiliza la función existente
-    const grado = Math.floor(Math.random() * 4) + 1; // Grado aleatorio entre 1 y gradoMax
-    return `${coeficiente}x^${grado}`;
+    let grado = Math.floor(Math.random() * (gradoMax + 1)); // Grado aleatorio entre 0 y gradoMax
+
+    // Si grado es 0, devolver solo el coeficiente (constante)
+    if (grado === 0) {
+        return `${coeficiente}`;
+    }
+
+    // Si grado es 1, devolver solo coeficiente con literal sin exponente
+    if (grado === 1) {
+        return `${coeficiente}x`;
+    }
+
+    // Para grados mayores, devolver con exponente formateado
+    return `${coeficiente}x^${grado}`
+        .replace(/\^2/g, '²')
+        .replace(/\^3/g, '³')
+        .replace(/\^4/g, '⁴')
+        .replace(/\^5/g, '⁵');
 }
 
-// Función para generar un polinomio aleatorio
+// Función para generar un polinomio aleatorio con exponentes formateados
 function generarPolinomio(gradoMax, numTerminos) {
     let polinomio = '';
     for (let i = 0; i < numTerminos; i++) {
-        polinomio += (i === 0 ? '' : ' + ') + generarTerminoPolinomio(gradoMax - i);
+        polinomio += (i === 0 ? '' : ' + ') + generarTerminoPolinomio(gradoMax);
     }
     return polinomio;
 }
 
-// Función para generar un ejemplo de división de polinomios
+// Función para generar un ejemplo de división de polinomios con exponentes formateados
 function generarDivisionPolinomios() {
     const gradoDividendo = Math.floor(Math.random() * 4) + 2; // Grado del dividendo (entre 2 y 5)
     const gradoDivisor = Math.floor(Math.random() * (gradoDividendo - 1)) + 1; // Grado del divisor (menor que el dividendo)
@@ -139,11 +107,39 @@ function generarDivisionesPolinomios(numEjemplos) {
     return divisiones;
 }
 
-// Event listener para generar divisiones de polinomios
+// Event listeners para mostrar diferentes secciones
+document.getElementById('productosNotablesBtn').addEventListener('click', () => {
+    mostrarSeccion('productosNotables');
+});
+
 document.getElementById('divisionPolinomiosBtn').addEventListener('click', () => {
     mostrarSeccion('divisionPolinomios');
 });
 
+document.getElementById('volverMenuPrincipal1').addEventListener('click', () => {
+    mostrarSeccion('menuPrincipal');
+});
+
+document.getElementById('volverMenuPrincipal2').addEventListener('click', () => {
+    mostrarSeccion('menuPrincipal');
+});
+
+// Event listener para generar expresiones de productos notables
+document.getElementById('generarBtn').addEventListener('click', () => {
+    const numTerminos = parseInt(document.getElementById('numTerminos').value, 10);
+    const resultadoDiv = document.getElementById('resultado');
+
+    if (!isNaN(numTerminos) && numTerminos > 0) {
+        const expresion = generarExpresionCompleja(numTerminos);
+        resultadoDiv.textContent = `Expresión generada: ${expresion}`;
+        resultadoDiv.style.display = 'block';
+    } else {
+        resultadoDiv.textContent = "Por favor, introduce un número válido.";
+        resultadoDiv.style.display = 'block';
+    }
+});
+
+// Event listener para generar divisiones de polinomios
 document.getElementById('generarDivisionesBtn').addEventListener('click', () => {
     const numEjemplos = parseInt(document.getElementById('numEjemplos').value, 10);
     const resultadoDiv = document.getElementById('resultadoDivisiones');
@@ -158,11 +154,10 @@ document.getElementById('generarDivisionesBtn').addEventListener('click', () => 
     }
 });
 
-// Funciones para volver al menú principal
-document.getElementById('volverMenuPrincipal1').addEventListener('click', () => {
-    mostrarSeccion('menuPrincipal');
-});
-
-document.getElementById('volverMenuPrincipal2').addEventListener('click', () => {
-    mostrarSeccion('menuPrincipal');
-});
+// Función para mostrar y ocultar secciones
+function mostrarSeccion(seccionId) {
+    document.getElementById('menuPrincipal').style.display = 'none';
+    document.getElementById('productosNotables').style.display = 'none';
+    document.getElementById('divisionPolinomios').style.display = 'none';
+    document.getElementById(seccionId).style.display = 'block';
+        }
