@@ -59,7 +59,7 @@ function generarExpresionCompleja(numTérminos) {
 // Función para generar un término aleatorio de polinomio con exponentes formateados
 function generarTerminoPolinomio(gradoMax) {
     const coeficiente = generarNumeroAleatorio(); // Reutiliza la función existente
-    let grado = Math.floor(Math.random() * (gradoMax + 1)); // Grado aleatorio entre 0 y gradoMax
+    let grado = Math.floor(Math.random() * (5)); // Grado aleatorio entre 0 y gradoMax
 
     // Si grado es 0, devolver solo el coeficiente (constante)
     if (grado === 0) {
@@ -75,8 +75,7 @@ function generarTerminoPolinomio(gradoMax) {
     return `${coeficiente}x^${grado}`
         .replace(/\^2/g, '²')
         .replace(/\^3/g, '³')
-        .replace(/\^4/g, '⁴')
-        .replace(/\^5/g, '⁵');
+        .replace(/\^4/g, '⁴') 
 }
 
 // Función para generar un polinomio aleatorio con exponentes formateados
