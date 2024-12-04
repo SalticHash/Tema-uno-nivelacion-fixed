@@ -15,13 +15,13 @@ function generarTerminoAleatorio() {
 
 function generarFormulaNotableSimple() {
     const formulas = [
-        { formula: (a, b) => `(${a} + ${b})²`, peso: 1 },
-        { formula: (a, b) => `(${a} - ${b})²`, peso: 1 },
-        { formula: (a, b) => `(${a} + ${b})(${a} - ${b})`, peso: 1 },
-        { formula: (a, b) => `(${a} + ${b})³`, peso: 1 },
-        { formula: (a, b) => `(${a} - ${b})³`, peso: 3 },
-        { formula: (a, b) => `(${a}³ + ${b})³`, peso: 3 },
-        { formula: (a, b) => `(${a}³ - ${b})³`, peso: 3 }
+        { formula: (a, b) => `(${a} + ${b})²`, peso: 3 },
+        { formula: (a, b) => `(${a} - ${b})²`, peso: 3 },
+        { formula: (a, b) => `(${a} + ${b})(${a} - ${b})`, peso: 2 },
+        { formula: (a, b) => `(${a} + ${b})³`, peso: 2 },
+        { formula: (a, b) => `(${a} - ${b})³`, peso: 2 },
+        { formula: (a, b) => `(${a}³ + ${b}³)`, peso: 1 },
+        { formula: (a, b) => `(${a}³ - ${b}³)`, peso: 1 }
     ];
 
     // Crear un arreglo expandido según los pesos
