@@ -20,15 +20,18 @@ h1 {
     margin-bottom: 10px;
     text-align: center;
     color: #444;
+    user-select: none;
 }
 
 label {
+    margin-right: 20px;
+    user-select: none;
     font-size: 1rem;
     color: #555;
 }
 
 input[type="number"] {
-    width: 100%;
+    flex-grow: 1;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -36,8 +39,13 @@ input[type="number"] {
     font-size: 1rem;
 }
 
-button {
-    background-color: #007bff;
+a, button {
+    user-select: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+    background-color: var(--bg);
+    --bg: #007bff;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -48,10 +56,18 @@ button {
     margin: 20px auto; /* Aumenta el espacio entre botones */
     display: block; /* Asegura que los botones estén en líneas separadas */
     text-align: center;
+    background-blend-mode: multiply;
 }
 
-button:hover {
-    background-color: #0056b3;
+.disabled {
+    pointer-events: none;
+    background-color: color-mix(in srgb, var(--bg) 50%, black 50%) !important;
+}
+
+a:hover, button:hover {
+    /* background-color: inherit;
+    filter: brightness(85%); */
+    background-color: color-mix(in srgb, var(--bg) 85%, black 15%);
 }
 
 .result {
@@ -59,3 +75,16 @@ button:hover {
     padding: 15px;
     background: #e7f3ff;
     border: 1px
+}
+
+
+.gray {--bg: #555;}
+.red {--bg: #ff0000;}
+.yellow {--bg: #eb9d00;}
+.green {--bg: #35c330;}
+.blue {--bg: #007bff;}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}

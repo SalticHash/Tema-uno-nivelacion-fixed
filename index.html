@@ -1,75 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Fórmulas Notables</title>
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pagina Principal</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="styles.css">
+        <base href="pages/">
+    </head>
 
+    <body>
+        <div class="container" id="menuPrincipal">
+            <h1>Pagina Principal</h1>
 
-<div class="container" id="menuPrincipal">
-    <h1>Bienvenido al temario de décimo año </h1>
-    <button id="carpetasPadrinosBtn">Carpetas Padrinos</button>
-    <button id="generarProblemasBtn">Generar Problemas</button>
-    <button id="temasFisicaBtn">Temas Física</button>
-    <button id="temasQuimicaBtn">Temas Química</button>
-    <button id="temasBiologiaBtn">Temas Biología</button>
-    <button id="temasMatematicasBtn">Temas Matemáticas</button>
-</div>
+            <a href="carpetasPadrinos.html" class="disabled">Carpetas Padrinos</a>
+            <a href="generadores/principal.html">Generar Problemas</a>
 
-<!-- Sección para Generar Problemas -->
-<div class="container" id="generarProblemas" style="display: none;">
-    <h1>Generar Problemas</h1>
-    <button id="productosNotablesBtn">Productos Notables</button>
-    <button id="divisionPolinomiosBtn">División de Polinomios</button>
-    <button id="volverMenuPrincipalGenerar">Volver al Menú Principal</button>
-</div>
-
-<!-- Secciones de Temas (placeholder) -->
-<div class="container" id="temasFisica" style="display: none;">
-    <h1>Temas de Física</h1>
-    <p>Contenido de Física...</p>
-    <button id="volverMenuPrincipalFisica">Volver al Menú Principal</button>
-</div>
-
-<div class="container" id="temasQuimica" style="display: none;">
-    <h1>Temas de Química</h1>
-    <p>Contenido de Química...</p>
-    <button id="volverMenuPrincipalQuimica">Volver al Menú Principal</button>
-</div>
-
-<div class="container" id="temasBiologia" style="display: none;">
-    <h1>Temas de Biología</h1>
-    <p>Contenido de Biología...</p>
-    <button id="volverMenuPrincipalBiologia">Volver al Menú Principal</button>
-</div>
-
-<div class="container" id="temasMatematicas" style="display: none;">
-    <h1>Temas de Matemáticas</h1>
-    <p>Contenido de Matemáticas...</p>
-    <button id="volverMenuPrincipalMatematicas">Volver al Menú Principal</button>
-</div>
-
-<!-- Productos Notables -->
-<div class="container" id="productosNotables" style="display: none;">
-    <h1>Productos Notables</h1>
-    <label for="numTerminos">Número de términos:</label>
-    <input type="number" id="numTerminos" min="1" placeholder="Ejemplo: 3">
-    <button id="generarBtn">Generar Expresión</button>
-    <div id="resultado" class="result" style="display: none;"></div>
-    <button id="volverMenuPrincipal1">Volver al Menú Principal</button>
-</div>
-
-<!-- División de Polinomios -->
-<div class="container" id="divisionPolinomios" style="display: none;">
-    <h1>División de Polinomios</h1>
-    <label for="numEjemplos">Número de ejemplos:</label>
-    <input type="number" id="numEjemplos" min="1" placeholder="Ejemplo: 3">
-    <button id="generarDivisionesBtn">Generar Ejemplos</button>
-    <div id="resultadoDivisiones" class="result" style="display: none;"></div>
-    <button id="volverMenuPrincipal2">Volver al Menú Principal</button>
-</div>
-
-<script src="script.js"></script>
-  
-</script>
+            <a href="temas/principal.html">Temarios</a>
+        </div>
+    </body>
+</html>
